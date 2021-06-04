@@ -1,0 +1,28 @@
+---
+title: "Untitled"
+author: "Constanza Prado"
+date: "3/25/2020"
+output: pdf_document
+---
+```{r, echo = FALSE}
+vector <- unique(iris$Species)
+```
+
+## Análisis de la base Iris
+
+La base de datos `iris` cuenta con `r nrow(iris)` observaciones y `r ncol(iris)` variables. Además cuenta con `r length(unique(iris$Species))` especies distintas, que varían entre `r paste(paste(unique(iris$Species)[1:(length(unique(iris$Species)) - 1)], collapse = ", "), unique(iris$Species)[length(unique(iris$Species))], sep = " y ")`.
+
+## Análisis de la Especie `r vector[i]`
+
+Las flores de tipo `r vector[i]` tienen en promedio `r mean(iris$Petal.Length[iris$Species == vector[i]])`.
+
+## Tabla de Resumen
+
+```{r, echo = FALSE, warning = FALSE}
+library(dplyr)
+data <- iris %>% dplyr::filter(Species == vector[i])
+summary(data[,!(names(data) %in% "Species")])
+```
+
+
+

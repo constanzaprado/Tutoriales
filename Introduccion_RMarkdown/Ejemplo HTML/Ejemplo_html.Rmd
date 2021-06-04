@@ -1,0 +1,28 @@
+---
+title: "Primeros Pasos"
+author: "Constanza Prado"
+date: "3/25/2020"
+output:
+  rmdformats::readthedown:
+    self_contained: true
+    thumbnails: true
+    lightbox: true
+    gallery: false
+    highlight: tango
+---
+
+## Análisis de la base Iris
+
+La base de datos `iris` cuenta con `r nrow(iris)` observaciones y `r ncol(iris)` variables. Además cuenta con `r length(unique(iris$Species))` especies distintas, que varían entre `r paste(unique(iris$Species), sep = ", ")`.
+
+## Tablas de Frecuencias
+
+```{r, echo = FALSE, warning = FALSE}
+library(knitr)
+library(DT)
+tabla <- data.frame(table(iris$Species))
+names(tabla) <- c("Especie", "Frecuencia")
+kable(tabla, caption = "Tabla de Frecuencia de Especies")
+datatable(tabla)
+```
+

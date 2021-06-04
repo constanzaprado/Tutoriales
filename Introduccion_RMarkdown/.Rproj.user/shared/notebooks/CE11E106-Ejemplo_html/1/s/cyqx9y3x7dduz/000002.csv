@@ -1,0 +1,3 @@
+"0","library(knitr)"
+"0","tabla <- data.frame(table(iris$Species))"
+"0","tabla"

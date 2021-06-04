@@ -1,0 +1,62 @@
+---
+title: |
+  | \includegraphics[width=1.5in,height=1.5in]{UCcolor.pdf}
+  | Your title here!
+# Tambien puede ser   ![](UCcolor.pdf){width=1in} 
+
+author: |
+  | Author 1^[Corresponding author: email@email.com] $^1$, Author 2 $^1$, Author 3 $^2$
+  | $^1$Affiliation1,  $^2$Affiliation2
+
+abstract: |
+  Your abstract goes here...
+
+output:
+  bookdown::pdf_document2:
+  toc: no
+fig_caption: yes
+
+always_allow_html: yes
+
+# These are LaTex settings to take care of floating figures/tables, line spacing, etc
+header-includes:
+  - \usepackage{endfloat}    
+  - \usepackage{setspace}\doublespacing
+  - \usepackage{lineno}
+#  - \linenumbers
+---
+
+```{r Setup..., message=FALSE, warning=FALSE, include=FALSE}
+knitr::opts_chunk$set(fig.pos = 'p') # Places figures on their own pages
+knitr::opts_chunk$set(out.width = '100%', dpi = 300)
+
+# I usually load my libraries up front to keep things organized
+library(bookdown)
+library(knitr)
+library(kableExtra)
+library(ggplot2)
+library(ggthemes)
+library(ggExtra)
+library(dplyr)
+library(stringr)
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r cars}
+summary(cars)
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
